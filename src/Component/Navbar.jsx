@@ -1,9 +1,10 @@
-import React, { useState } from 'react'
+import React, { useRef, useState } from 'react'
 import { Link } from 'react-router-dom'
 
-const Navbar = () =>
-{
+const Navbar = () => {
   const userData = JSON.parse( localStorage.getItem( "userData" ) )
+  const [search,setSearch] = useState('');
+  console.log(search)
   return (
     <div className="navbar bg-base-300">
       <div className="flex-1">
@@ -11,7 +12,12 @@ const Navbar = () =>
       </div>
       <div className="flex-none gap-2">
         <div className="form-control">
-          <input type="text" placeholder="Search" className="input input-bordered" />
+          <input
+          value={search}
+          onChange={(e) => setSearch(e.target.value)}
+           type="text"
+           placeholder="Search"
+           className="input input-bordered" />
         </div>
         <div className="dropdown dropdown-end">
           <label tabIndex={ 0 } className="btn btn-ghost btn-circle avatar">
