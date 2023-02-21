@@ -1,5 +1,6 @@
 import axios from 'axios'
 import React, { useEffect, useState } from 'react'
+import Swal from 'sweetalert2'
 import Cart from '../Component/Cart'
 import Navbar from '../Component/Navbar'
 import Card from '../Component/product/Card'
@@ -22,7 +23,11 @@ const Product = () => {
   const removeFromCart = (id) => {
     setCart(cart?.filter(item => item?.id !== id))
     localStorage.setItem("cartItems", JSON.stringify(cart?.filter(item => item?.id !== id)))
-  }
+  };
+
+  
+ 
+
 
   useEffect(() => {
     getProduct()
@@ -34,7 +39,12 @@ const Product = () => {
       <Cart />
       <div className=" flex flex-wrap  gap-12 mx-14 my-6">
 
-     {product?.map(product => <Card addToCart={addToCart} removeFromCart={removeFromCart} product={product} /> )}
+     {product?.map(product => <Card
+      addToCart={addToCart} 
+      removeFromCart={removeFromCart}
+       product={product}
+      //  deleteProduct={deleteProduct}
+       /> )}
       </div>
     </div>
   )

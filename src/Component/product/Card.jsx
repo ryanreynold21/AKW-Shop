@@ -4,7 +4,7 @@ import { BsCartPlus } from 'react-icons/bs'
 import { useNavigate } from 'react-router'
 import Star from './Star'
 
-const Card = ( { product,addToCart,removeFromCart } ) =>
+const Card = ( { product,addToCart,removeFromCart} ) =>
 {
   const { title, description, thumbnail, price, category, rating } = product;
   const cartItems = JSON.parse(localStorage.getItem('cartItems'));

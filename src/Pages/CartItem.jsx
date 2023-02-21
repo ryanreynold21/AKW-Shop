@@ -2,7 +2,6 @@ import React, { useState } from 'react'
 import { useNavigate } from 'react-router'
 import { Link } from 'react-router-dom'
 import Item from '../Component/item'
-import Navbar from '../Component/Navbar'
 
 const CartItem = () => {
   const cartItems = JSON.parse(localStorage.getItem('cartItems'));
@@ -53,11 +52,10 @@ const CartItem = () => {
 
   return (
     <div className=''>
-      <Navbar />
       <Link to={'/'}>
       <button className=' px-4 py-2 border-rose-600 btn-ghost border'>Shop</button>
       </Link>
-      <div className=' h-screen flex flex-col items-center justify-center'>
+      <div className=' h-screen flex flex-col items-center justify-center my-10'>
       <div className=" flex item-center flex-col w-1/2">
         {!cart?.length && (
              <div className=" flex flex-col items-center justify-center p-10">
@@ -75,7 +73,7 @@ const CartItem = () => {
       removeFromCart={removeFromCart}
       /> )}
       </div>
-    <div className=" bg-slate-900 w-1/2 py-6 text-center">
+    <div className=" bg-slate-900 py-6 text-center">
         <span className=' text-xl font-bold text-cyan-500'>Total price - $ {total} </span>
         <div className=" mt-4">
         <button onClick={clearHandler} className='mx-3 text-lg text-white  rounded px-4 py-2 bg-rose-500 hover:bg-rose-600'>Clear</button>

@@ -8,6 +8,8 @@ import Dashboard from './Pages/Dashboard'
 import Login from './Pages/Login'
 import Product from './Pages/Product'
 import Success from './Component/Success'
+import AddProduct from './Pages/AddProduct'
+import Edit from './Pages/Edit'
 
 const App = () => {
   return (
@@ -18,6 +20,8 @@ const App = () => {
         <Route path='/'  element={ <Guard> <Product /> </Guard> } />
         <Route path='/product-detail/:id'  element={ <Guard> <Detail /> </Guard> } />
         <Route path='/product-cart'  element={ <Guard> <CartItem /> </Guard> } />
+        <Route path='/addProduct'  element={ <Guard> <AddProduct /> </Guard> } />
+        <Route path='/product-detail/edit/:id'  element={ <Guard> <Edit /> </Guard> } />
         <Route path='/success'  element={ <Guard> <Success /> </Guard> } />
       </Routes>
     </BrowserRouter>
