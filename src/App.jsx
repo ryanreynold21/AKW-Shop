@@ -10,6 +10,8 @@ import Product from './Pages/Product'
 import Success from './Component/Success'
 import AddProduct from './Pages/AddProduct'
 import Edit from './Pages/Edit'
+import Profile from './Pages/Profile'
+import Hero from './Pages/Hero'
 
 const App = () => {
   return (
@@ -22,6 +24,8 @@ const App = () => {
         <Route path='/product-cart'  element={ <Guard> <CartItem /> </Guard> } />
         <Route path='/addProduct'  element={ <Guard> <AddProduct /> </Guard> } />
         <Route path='/product-detail/edit/:id'  element={ <Guard> <Edit /> </Guard> } />
+        <Route path='/user-profile'  element={ <Guard> <Profile /> </Guard> } />
+        <Route path='/AKW-shop'  element={ <Guard> <Hero /> </Guard> } />
         <Route path='/success'  element={ <Guard> <Success /> </Guard> } />
       </Routes>
     </BrowserRouter>

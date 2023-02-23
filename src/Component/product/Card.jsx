@@ -2,13 +2,21 @@ import axios from 'axios'
 import React from 'react'
 import { BsCartPlus } from 'react-icons/bs'
 import { useNavigate } from 'react-router'
-import Star from './Star'
+import Star from './Star';
+import { motion } from 'framer-motion';
 
-const Card = ( { product,addToCart,removeFromCart} ) =>
-{
+const Card = ( { product,addToCart,removeFromCart} ) =>{
   const { title, description, thumbnail, price, category, rating } = product;
   const cartItems = JSON.parse(localStorage.getItem('cartItems'));
   const navigate = useNavigate();
+
+  const cardVariant = {
+    hidden: {y:-100},
+    visible: {
+      y:0,
+      transition:{duration:1}
+    },
+  }
 
   const goDetail = (e) => {
     e.stopPropagation()
@@ -17,7 +25,14 @@ const Card = ( { product,addToCart,removeFromCart} ) =>
 
 
   return (
-    <div onClick={goDetail} className="card w-96 bg-slate-800 shadow-xl">
+    <motion.div
+     variants={cardVariant}
+     initial='hidden'
+     animate='visible'
+     whileHover='hover'
+     whileTap='tap'
+     onClick={goDetail}
+     className="card w-96 bg-slate-800 shadow-xl">
       <figure><img className=' mt-4 rounded-md h-44 mx-auto' src={ thumbnail } /></figure>
       <div className="card-body">
         <h2 className="card-title font-bold text-white">
@@ -47,7 +62,7 @@ const Card = ( { product,addToCart,removeFromCart} ) =>
           )}
         </div>
       </div>
-    </div>
+    </motion.div>
   )
 }
 

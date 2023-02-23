@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import { useNavigate } from 'react-router'
 import { Link } from 'react-router-dom'
 import Item from '../Component/item'
+import Navbar from '../Component/Navbar'
 
 const CartItem = () => {
   const cartItems = JSON.parse(localStorage.getItem('cartItems'));
@@ -52,10 +53,11 @@ const CartItem = () => {
 
   return (
     <div className=''>
+      <Navbar />
       <Link to={'/'}>
-      <button className=' px-4 py-2 border-rose-600 btn-ghost border'>Shop</button>
+      <button className=' px-4 py-2 mt-4 border-rose-600 btn-ghost border'>Shop</button>
       </Link>
-      <div className=' h-screen flex flex-col items-center justify-center my-10'>
+      <div className=' flex flex-col items-center justify-center'>
       <div className=" flex item-center flex-col w-1/2">
         {!cart?.length && (
              <div className=" flex flex-col items-center justify-center p-10">
