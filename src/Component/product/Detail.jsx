@@ -25,7 +25,7 @@ const Detail = () => {
   useEffect(() => {
       getProduct()
       setIsPanding(true);
-  },[])
+  },[id])
 
   const imageHandler = (img) => {
     setImage(img)
